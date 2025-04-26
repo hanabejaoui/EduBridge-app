@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Responses</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav class="top-nav">
+      <div class="logo">
+        <img src="/logo.png" alt="EduBridge Logo" class="logo-img">
+        
+      </div>
+      
+          
+        <div class="logo"></div>
+        <div class="nav-links">
+          <a href="/">Dashboard</a>
+          <a href="/profile.html">Profile</a>
+          <a href="/student_ask_question.html">Ask Question</a>
+  
+          <a href="/logout">Logout</a>
+        </div>
+      </nav>
+      
+      
+      
+  <div class="form-container">
+    <h2> Tutor Responses to Your Questions</h2>
+    <div id="responseContainer"></div>
+    
+  </div>
+
+  <script>
+    fetch('/my-responses')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('responseContainer');
+        container.innerHTML = '';
+
+        if (data.length === 0) {
+          container.innerHTML = '<p>No responses yet. Ask a question first!</p>';
+          return;
+        }
+
+        data.forEach(item => {
+          const div = document.createElement('div');
+          div.className = 'post';
+          div.innerHTML = `
+            <strong>Subject:</strong> ${item.subject}<br>
+            <strong>Question:</strong> ${item.description}<br>
+            <strong>Response:</strong> ${item.message}<br>
+            <small>From Tutor: ${item.tutor_name}</small><hr>
+          `;
+          container.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>

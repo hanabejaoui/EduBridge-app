@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ask for Help</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <nav class="top-nav">
+      <div class="logo">
+        <img src="/logo.png" alt="EduBridge Logo" class="logo-img">
+       
+      </div>
+      
+          
+        <div class="logo"></div>
+        <div class="nav-links">
+          <a href="/">Dashboard</a>
+          <a href="/student-profile.html">Profile</a>
+          <a href="/student-responses.html">Responses</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </nav>
+      
+      
+      
+  <div class="form-container">
+    <h2>Ask a new question</h2>
+    <p><em>Required fields are denoted with an asterisk (*)</em></p>
+
+    <form action="/student_ask_question" method="POST">
+      <label>What course do you need help with? *</label>
+      <select name="subject" required>
+        <option value="">Select...</option>
+        <option value="Math">Math</option>
+        <option value="Physics">Physics</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Biology">Biology</option>
+        <option value="Economics">Economics</option>
+        <option value="French">French</option>
+        <option value="English">Biology</option>
+        <option value="Programming Language">Programming Language</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Electronics">Biology</option>
+        <option value="Signals and Systems">Signals and Systems</option>
+        <option value="Mechanics">Mechanics</option>
+        <option value="High Performance Computing">High Performance Computing</option>
+        <option value="Machine Learning">Machine Learning</option>
+        <option value="Data Science">Data Science</option>
+        <option value="Business">Business</option>
+      </select>
+
+      <label>What is your question about? *</label>
+      <select name="helpType" required>
+        <option value="Assignment">Assignment</option>
+        <option value="Review">Review</option>
+        <option value="Explanation">Explanation</option>
+      </select>
+
+      <label>What question do you have? *</label>
+      <textarea name="message" rows="5" placeholder="Type your question here..." required></textarea>
+
+      <button type="submit" class="login-btn">Ask question</button>
+    </form>
+  </div>
+</body>
+</html>

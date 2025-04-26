@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Profile</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="logo">
+      <img src="/logo.png" alt="EduBridge Logo" class="logo-img" />
+    </div>
+    <div class="nav-links">
+      <a href="/">Dashboard</a>
+      <a href="/student-profile">Profile</a>
+      <a href="/student_ask_question.html">Ask Question</a>
+  
+      <a href="/student-responses.html">Responses</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </nav>
+
+  <div class="form-container">
+    <h2>🎓 Student Profile</h2>
+
+    <table class="profile-table">
+      <tbody id="profileTableBody"></tbody>
+    </table>
+  </div>
+
+  <script>
+    fetch('/api/profile')
+      .then(res => res.json())
+      .then(user => {
+        const body = document.getElementById('profileTableBody');
+        body.innerHTML = `
+          <tr><th>Full Name:</th><td>${user.name}</td></tr>
+          <tr><th>Email Address:</th><td>${user.email}</td></tr>
+          <tr><th>Account Role:</th><td><span class="role-badge">${user.role}</span></td></tr>
+          <tr><th>Phone Number:</th><td>${user.phone}</td></tr>
+          <tr><th>Nationality:</th><td>${user.nationality}</td></tr>
+          <tr><th>Education Level:</th><td>${user.education_level}</td></tr>
+          <tr><th>Major:</th><td>${user.major}</td></tr>
+        `;
+      });
+  </script>
+</body>
+</html>

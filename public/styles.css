@@ -1,0 +1,235 @@
+/* Reset */
+body {
+    margin: 0;
+    padding: 0;
+    background: #f6f9fb;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* 🔝 Navbar like the reference image */
+  .top-nav {
+    position: fixed;
+    top: 0;
+    width: 98%;
+    background-color: #531a3c;
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 0;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo-img {
+    height: 75px; /* Adjust size here */
+  }
+  
+  .brand-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  
+  .nav-links {
+    display: flex;
+    gap: 20px; /* Increased space between links */
+    align-items: center;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+    transition: color 0.2s ease-in-out;
+    padding: 6px 10px; /* Add padding for better click area */
+  }
+  
+  
+  .nav-links a:hover {
+    color: #00ffa2;
+  }
+  
+  /* ⬇️ Adjust content below navbar */
+  .form-container {
+    max-width: 700px;
+    margin: 100px auto 40px;
+    padding: 35px 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Headings */
+  h2 {
+    color: #520754;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #222;
+  }
+  
+  /* Form Elements */
+  label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  input.match {
+    border-color: #4CAF50;
+  }
+  
+  input.mismatch {
+    border-color: red;
+  }
+  
+  /* Buttons */
+  button,
+  .login-btn,
+  .register-btn,
+  .response-button,
+  .edit-subject,
+  .Back-button {
+    background-color: #a3106b;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover,
+  .login-btn:hover,
+  .register-btn:hover,
+  .response-button:hover,
+  .edit-subject:hover {
+    background-color: #a3106b;
+  }
+  
+  .response-button {
+    background-color: #2a2c2a;
+  }
+  
+  .response-button:hover {
+    background-color: #2a2c2a;
+  }
+  
+  .Back-button {
+    background-color: #a3106b;
+  }
+  
+  .Back-button:hover {
+    background-color: #a3106b;
+  }
+  
+  .edit-subject {
+    background-color: #2a2c2a;
+  }
+  
+  .edit-subject:hover {
+    background-color: #2a2c2a;
+  }
+  
+  /* Posts */
+  .post {
+    background: #fff;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 6px #ccc;
+  }
+  
+  /* Misc */
+  .forgot {
+    font-size: 13px;
+    text-align: right;
+    color: black;
+    text-decoration: underline;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.2);
+  }
+  .profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 15px;
+  }
+  .profile-table th {
+    text-align: left;
+    color: #520754;
+    padding: 10px 12px;
+    background-color: #f2f2f2;
+    width: 180px;
+  }
+  .profile-table td {
+    padding: 10px 12px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .role-badge {
+    display: inline-block;
+    background-color: #d88db4;
+    color: #520754;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 13px;
+  }
+  .profile-table {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .role-badge {
+    display: inline-block;
+    background-color: #d88db4;
+    color: #520754;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 13px;
+  }
+  

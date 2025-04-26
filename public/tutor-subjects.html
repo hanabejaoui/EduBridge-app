@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Subjects</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="logo">
+      <img src="/logo.png" alt="EduBridge Logo" class="logo-img">
+      
+    </div>
+    
+    
+    <div class="logo"></div>
+    <div class="nav-links">
+      <a href="/">Dashboard</a>
+      <a href="/tutor-subjects.html">Subjects</a>
+      <a href="/tutor-profile.html">Profile</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </nav>
+  
+  
+  
+  <div class="form-container">
+    <h2>Select Subjects You Can Help With 📚</h2>
+    <p>Choose as many as you'd like:</p>
+
+    <form action="/tutor-subjects" method="POST">
+      <label><input type="checkbox" name="subjects" value="Math"> Math</label><br>
+      <label><input type="checkbox" name="subjects" value="Physics"> Physics</label><br>
+      <label><input type="checkbox" name="subjects" value="Chemistry"> Chemistry</label><br>
+      <label><input type="checkbox" name="subjects" value="Biology"> Biology</label><br>
+      <label><input type="checkbox" name="subjects" value="English"> English</label><br>
+      <label><input type="checkbox" name="subjects" value="French"> French</label><br>
+      <label><input type="checkbox" name="subjects" value="Mechanics"> Mechanics</label><br>
+      <label><input type="checkbox" name="subjects" value="Thermodynamics"> Thermodynamics</label><br>
+      <label><input type="checkbox" name="subjects" value="Fluid Dynamics"> Fluid Dynamics</label><br>
+      <label><input type="checkbox" name="subjects" value="Electronics"> Electronics</label><br>
+      <label><input type="checkbox" name="subjects" value="Control Systems"> Control Systems</label><br>
+      <label><input type="checkbox" name="subjects" value="Signals and Systems"> Signals and Systems</label><br>
+
+      <label><input type="checkbox" name="subjects" value="Programming"> Programming</label><br>
+      <label><input type="checkbox" name="subjects" value="Data Structures"> Data Structures</label><br>
+      <label><input type="checkbox" name="subjects" value="Algorithms"> Algorithms</label><br>
+      <label><input type="checkbox" name="subjects" value="Data Science"> Data Science</label><br>
+      <label><input type="checkbox" name="subjects" value="Web Development"> Web Development</label><br>
+      <label><input type="checkbox" name="subjects" value="Machine Learning"> Machine Learning</label><br>
+      <label><input type="checkbox" name="subjects" value="High Performance Computing"> High Performance Computing (HPC)</label><br>
+      <label><input type="checkbox" name="subjects" value="Business"> Business</label><br>
+
+      <button class="login-btn" type="submit">Save and Continue</button>
+    </form>
+  </div>
+</body>
+</html>

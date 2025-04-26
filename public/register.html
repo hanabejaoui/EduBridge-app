@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>Register</h2>
+    <!-- ✅ register.html -->
+    <form action="/register" method="POST">
+        <label>Name *</label>
+        <input type="text" name="name" placeholder="Your full name..." required>
+      
+        <label>Email *</label>
+        <input type="email" name="email" placeholder="Email..." required>
+      
+        <label>Password *</label>
+        <input type="password" name="password" placeholder="Password..." required>
+      
+        <label>Confirm Password *</label>
+        <input type="password" name="confirmPassword" placeholder="Repeat password..." required>
+      
+        <label>Phone</label>
+        <input type="text" name="phone" placeholder="e.g. +1234567890">
+      
+        <label>Nationality</label>
+        <input type="text" name="nationality" placeholder="e.g. Tunisian">
+      
+        <label>Education Level</label>
+        <input type="text" name="education_level" placeholder="e.g. Bachelor, Master...">
+      
+        <label>Major</label>
+        <input type="text" name="major" placeholder="e.g. Computer Science">
+      
+        <label>Role *</label>
+        <select name="role" required>
+          <option value="">-- Choose Role --</option>
+          <option value="Student">Student</option>
+          <option value="Tutor">Tutor</option>
+        </select>
+      
+        <button class="login-btn" type="submit">Register</button>
+      </form>
+      
+  </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function (e) {
+      const password = document.getElementById('password').value;
+      const confirm = document.getElementById('confirmPassword').value;
+      const error = document.getElementById('matchError');
+
+      if (password !== confirm) {
+        e.preventDefault();
+        error.style.display = 'block';
+        document.getElementById('confirmPassword').classList.add('mismatch');
+      } else {
+        error.style.display = 'none';
+        document.getElementById('confirmPassword').classList.remove('mismatch');
+        document.getElementById('confirmPassword').classList.add('match');
+      }
+    });
+  </script>
+</body>
+</html>
+

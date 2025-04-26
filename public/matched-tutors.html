@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Available Tutors</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="logo">
+      <img src="/logo.png" alt="EduBridge Logo" class="logo-img">
+      
+    </div>
+      
+          
+        <div class="logo"></div>
+        <div class="nav-links">
+          <a href="/">Dashboard</a>
+          <a href="/student-profile.html">Profile</a>
+          <a href="/tutor-subjects.html">Subjects</a>
+          <a href="/student_ask_question.html">Ask Question</a>
+          <a href="/student-responses.html">Responses</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </nav>
+      
+      
+      
+  <div class="form-container">
+    <h2>Available Tutors for Your Question</h2>
+    <div id="tutorsList">Loading...</div>
+    <a href="/dashboard.html" class="login-btn">Back to Dashboard</a>
+  </div>
+
+  <script>
+    fetch('/matched-tutors')
+      .then(res => res.json())
+      .then(tutors => {
+        const container = document.getElementById('tutorsList');
+        if (tutors.length === 0) {
+          container.innerHTML = '<p>No tutors available for this subject right now.</p>';
+        } else {
+          container.innerHTML = '';
+          tutors.forEach(tutor => {
+            const div = document.createElement('div');
+            div.classList.add('post');
+            div.innerHTML = `
+              <b>Name:</b> ${tutor.name} <br>
+              <b>Email:</b> <a href="mailto:${tutor.email}">${tutor.email}</a><br>
+              <b>Subjects:</b> ${tutor.subjects.join(', ')}<hr>
+            `;
+            container.appendChild(div);
+          });
+        }
+      });
+  </script>
+</body>
+</html>

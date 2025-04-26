@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Subjects</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="logo">
+      <img src="/logo.png" alt="EduBridge Logo" class="logo-img">
+      
+    </div>
+      
+          
+        <div class="logo"></div>
+        <div class="nav-links">
+          <a href="/">Dashboard</a>
+          <a href="/tutor-profile.html">Profile</a>
+          <a href="/tutor-subjects.html">Subjects</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </nav>
+      
+      
+      
+  <div class="form-container">
+    <h2>Edit Your Subjects 📝</h2>
+    <form id="editSubjectsForm" method="POST">
+      <label><input type="checkbox" name="subjects" value="Math"> Math</label><br>
+      <label><input type="checkbox" name="subjects" value="Physics"> Physics</label><br>
+      <label><input type="checkbox" name="subjects" value="Chemistry"> Chemistry</label><br>
+      <label><input type="checkbox" name="subjects" value="Programming"> Programming</label><br>
+      <label><input type="checkbox" name="subjects" value="HPC"> HPC</label><br><br>
+
+      <button class="login-btn" type="submit">Save Changes</button>
+      <a href="/tutor-dashboard.html"><button class="register-btn" type="button">Back</button></a>
+    </form>
+  </div>
+
+  <script>
+    // Load previously selected subjects
+    fetch('/my-subjects')
+      .then(res => res.json())
+      .then(subjects => {
+        subjects.forEach(subj => {
+          const checkbox = document.querySelector(`input[value="${subj}"]`);
+          if (checkbox) checkbox.checked = true;
+        });
+      });
+
+    // Submit updated subjects
+    document.getElementById('editSubjectsForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const selected = Array.from(document.querySelectorAll('input[name="subjects"]:checked')).map(cb => cb.value);
+
+      fetch('/update-subjects', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ subjects: selected })
+      }).then(() => window.location.href = '/tutor-dashboard.html');
+    });
+  </script>
+</body>
+</html>

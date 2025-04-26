@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tutor Profile</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="logo">
+      <img src="/logo.png" alt="EduBridge Logo" class="logo-img">
+      <span class="brand-name">EduBridge</span>
+    </div>
+    <div class="nav-links">
+      <a href="/">Dashboard</a>
+      <a href="/tutor-subjects.html">Subjects</a>
+      <a href="/tutor-profile.html">Profile</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </nav>
+
+  <div class="form-container">
+    <h2>👩‍🏫 Tutor Profile</h2>
+
+    <table class="profile-table">
+      <tbody id="profileTableBody"></tbody>
+    </table>
+
+    <h3>Your Subjects</h3>
+    <ul id="subjectList"></ul>
+
+    <!-- Optional edit form -->
+    <!--
+    <form id="editContactForm">
+      <h3>Edit Contact Info</h3>
+      <label>Email Address:
+        <input type="email" name="email" id="editEmail" required>
+      </label>
+      <label>Phone Number:
+        <input type="text" name="phone" id="editPhone" required>
+      </label>
+      <button type="submit">Save Changes</button>
+    </form>
+    -->
+  </div>
+
+  <script>
+    // Load user info
+    fetch('/api/profile')
+      .then(res => res.json())
+      .then(user => {
+        const body = document.getElementById('profileTableBody');
+        body.innerHTML = `
+          <tr><th>Full Name:</th><td>${user.name}</td></tr>
+          <tr><th>Email Address:</th><td>${user.email}</td></tr>
+          <tr><th>Account Role:</th><td><span class="role-badge">${user.role}</span></td></tr>
+          <tr><th>Phone Number:</th><td>${user.phone}</td></tr>
+          <tr><th>Nationality:</th><td>${user.nationality}</td></tr>
+          <tr><th>Education Level:</th><td>${user.education_level}</td></tr>
+          <tr><th>Major:</th><td>${user.major}</td></tr>
+        `;
+      });
+
+    // Load tutor subjects
+    fetch('/my-subjects')
+      .then(res => res.json())
+      .then(subjects => {
+        const list = document.getElementById('subjectList');
+        subjects.forEach(subject => {
+          const li = document.createElement('li');
+          li.textContent = subject;
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
