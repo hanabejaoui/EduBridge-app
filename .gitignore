@@ -1,15 +1,4 @@
-# dependencies
 node_modules/
-
-# local sqlite
 tutor.db
 *.sqbpro
-
-# logs
-*.log
-
-# OS junk
-.DS_Store
-
-# environment
 .env
