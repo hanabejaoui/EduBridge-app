@@ -6,25 +6,22 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <nav class="top-nav">
-      <nav class="top-nav">
-        <div class="logo">
-          <img src="/logo.png" alt="EduBridge Logo" class="logo-img">
-          
-        </div>
-               
-        <div class="logo"></div>
-        <div class="nav-links">
-          <a href="/">Dashboard</a>
-          <a href="/student-profile.html">Profile</a>
-          <a href="/student_ask_question.html">Ask Question</a>
-          <a href="/student-responses.html">Responses</a>
-          <a href="/logout">Logout</a>
-        </div>
-      </nav>
-      
-      
-      
+
+  <!-- 🔝 only one nav -->
+  <nav class="top-nav">
+    <div class="logo">
+      <img src="/logo.png" alt="EduBridge Logo" class="logo-img">
+    </div>
+    <div class="nav-links">
+      <a href="/">Dashboard</a>
+      <a href="/student-profile.html">Profile</a>
+      <a href="/student_ask_question.html">Ask Question</a>
+      <a href="/student-responses.html">Responses</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </nav>
+
+  <!-- 🆗 now outside of the nav -->
   <div class="form-container">
     <h2>Welcome, Student 🎓</h2>
 
@@ -34,61 +31,40 @@
     <h3>Your Help Requests</h3>
     <div id="postsContainer"></div>
 
-    
     <a href="/student-responses.html" class="response-button">📬 View Tutor Responses</a>
-
   </div>
 
   <script>
     let currentUserId;
-
-    // Get current user session
-    fetch('/session')
-      .then(res => res.json())
-      .then(data => {
-        currentUserId = data.userId;
-        loadPosts();
-      });
-
-    // Load only current student's posts
+    fetch('/session').then(r=>r.json()).then(data=>{
+      currentUserId = data.userId;
+      loadPosts();
+    });
     function loadPosts() {
-      fetch('/posts')
-        .then(res => res.json())
-        .then(posts => {
-          const container = document.getElementById('postsContainer');
-          container.innerHTML = '';
-
-          const myPosts = posts.filter(post => post.user_id === currentUserId && post.type === 'request');
-
-          if (myPosts.length === 0) {
-            container.innerHTML = '<p>You haven’t submitted any questions yet.</p>';
-            return;
-          }
-
-          myPosts.forEach(post => {
-            const div = document.createElement('div');
-            div.className = 'post';
-            div.innerHTML = `
-              <b>Subject:</b> ${post.subject}<br>
-              <b>Question:</b> ${post.description}<br>
-              <button onclick="deletePost(${post.id})">🗑️ Delete</button>
-              <hr>
-            `;
-            container.appendChild(div);
-          });
+      fetch('/posts').then(r=>r.json()).then(posts=>{
+        const c = document.getElementById('postsContainer');
+        c.innerHTML = '';
+        const mine = posts.filter(p=>p.user_id===currentUserId && p.type==='request');
+        if (!mine.length) {
+          c.innerHTML = '<p>You haven’t submitted any questions yet.</p>';
+          return;
+        }
+        mine.forEach(p=>{
+          const d = document.createElement('div');
+          d.className='post';
+          d.innerHTML=`
+            <b>Subject:</b> ${p.subject}<br>
+            <b>Question:</b> ${p.description}<br>
+            <button onclick="deletePost(${p.id})">🗑️ Delete</button>
+            <hr>`;
+          c.appendChild(d);
         });
+      });
     }
-
-    function deletePost(id) {
-      if (!confirm('Delete this post?')) return;
-
-      fetch(`/posts/${id}`, {
-        method: 'DELETE'
-      }).then(() => loadPosts());
+    function deletePost(id){
+      if(!confirm('Delete this post?'))return;
+      fetch(`/posts/${id}`,{method:'DELETE'}).then(loadPosts);
     }
   </script>
 </body>
 </html>
-
-
-

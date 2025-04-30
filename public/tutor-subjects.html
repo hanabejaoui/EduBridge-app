@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Select Subjects</title>
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- single nav, full-width purple -->
   <nav class="top-nav">
     <div class="logo">
-      <img src="/logo.png" alt="EduBridge Logo" class="logo-img">
-      
+      <img src="logo.png" alt="EduBridge Logo" class="logo-img">
     </div>
-    
-    
-    <div class="logo"></div>
     <div class="nav-links">
       <a href="/">Dashboard</a>
       <a href="/tutor-subjects.html">Subjects</a>
@@ -21,11 +18,10 @@
       <a href="/logout">Logout</a>
     </div>
   </nav>
-  
-  
-  
+
+  <!-- the white “sheet” -->
   <div class="form-container">
-    <h2>Select Subjects You Can Help With </h2>
+    <h2>Select Subjects You Can Help With</h2>
     <p>Choose as many as you'd like:</p>
 
     <form action="/tutor-subjects" method="POST">
@@ -41,7 +37,7 @@
       <label><input type="checkbox" name="subjects" value="Electronics"> Electronics</label><br>
       <label><input type="checkbox" name="subjects" value="Control Systems"> Control Systems</label><br>
       <label><input type="checkbox" name="subjects" value="Signals and Systems"> Signals and Systems</label><br>
-
+      <label><input type="checkbox" name="subjects" value="Economics"> Economics</label><br>
       <label><input type="checkbox" name="subjects" value="Programming"> Programming</label><br>
       <label><input type="checkbox" name="subjects" value="Data Structures"> Data Structures</label><br>
       <label><input type="checkbox" name="subjects" value="Algorithms"> Algorithms</label><br>
@@ -50,9 +46,26 @@
       <label><input type="checkbox" name="subjects" value="Machine Learning"> Machine Learning</label><br>
       <label><input type="checkbox" name="subjects" value="High Performance Computing"> High Performance Computing (HPC)</label><br>
       <label><input type="checkbox" name="subjects" value="Business"> Business</label><br>
-
       <button class="login-btn" type="submit">Save and Continue</button>
     </form>
   </div>
+  <script>
+    // grab all of the “subjects” checkboxes
+    const boxes = document.querySelectorAll('input[name="subjects"]');
+  
+    boxes.forEach(box => {
+      box.addEventListener('change', () => {
+        if (box.checked) {
+          // when one is checked, disable all the rest
+          boxes.forEach(other => {
+            if (other !== box) other.disabled = true;
+          });
+        } else {
+          // when it’s unchecked, re-enable everyone
+          boxes.forEach(other => other.disabled = false);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
