@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- single nav, full-width purple -->
+  
   <nav class="top-nav">
     <div class="logo">
       <img src="logo.png" alt="EduBridge Logo" class="logo-img">
@@ -19,7 +19,7 @@
     </div>
   </nav>
 
-  <!-- the white “sheet” -->
+  
   <div class="form-container">
     <h2>Select Subjects You Can Help With</h2>
     <p>Choose as many as you'd like:</p>
@@ -50,18 +50,18 @@
     </form>
   </div>
   <script>
-    // grab all of the “subjects” checkboxes
+    
     const boxes = document.querySelectorAll('input[name="subjects"]');
   
     boxes.forEach(box => {
       box.addEventListener('change', () => {
         if (box.checked) {
-          // when one is checked, disable all the rest
+          
           boxes.forEach(other => {
             if (other !== box) other.disabled = true;
           });
         } else {
-          // when it’s unchecked, re-enable everyone
+          
           boxes.forEach(other => other.disabled = false);
         }
       });

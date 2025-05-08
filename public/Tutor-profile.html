@@ -20,7 +20,7 @@
   </nav>
 
   <div class="form-container">
-    <h2> Tutor Profile</h2>
+    <h2> Profile</h2>
 
     <table class="profile-table">
       <tbody id="profileTableBody"></tbody>
@@ -29,23 +29,11 @@
     <h3>Your Subjects</h3>
     <ul id="subjectList"></ul>
 
-    <!-- Optional edit form -->
-    <!--
-    <form id="editContactForm">
-      <h3>Edit Contact Info</h3>
-      <label>Email Address:
-        <input type="email" name="email" id="editEmail" required>
-      </label>
-      <label>Phone Number:
-        <input type="text" name="phone" id="editPhone" required>
-      </label>
-      <button type="submit">Save Changes</button>
-    </form>
-    -->
+    
   </div>
 
   <script>
-    // Load user info
+    
     fetch('/api/profile')
       .then(res => res.json())
       .then(user => {
@@ -61,7 +49,7 @@
         `;
       });
 
-    // Load tutor subjects
+    
     fetch('/my-subjects')
       .then(res => res.json())
       .then(subjects => {

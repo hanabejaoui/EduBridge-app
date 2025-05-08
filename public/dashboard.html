@@ -7,11 +7,12 @@
 </head>
 <body>
 
-  <!-- 🔝 only one nav -->
+  
   <nav class="top-nav">
     <div class="logo">
       <img src="/logo.png" alt="EduBridge Logo" class="logo-img">
     </div>
+    <!--Navigation-->
     <div class="nav-links">
       <a href="/">Dashboard</a>
       <a href="/student-profile.html">Profile</a>
@@ -21,17 +22,17 @@
     </div>
   </nav>
 
-  <!-- 🆗 now outside of the nav -->
+  
   <div class="form-container">
-    <h2>Welcome, Student 🎓</h2>
+    <h2>Welcome, Student </h2>
 
-    <a class="login-btn" href="/student_ask_question.html">➕ Ask a New Question</a>
-    <a class="login-btn" href="/matched-tutors.html">🔍 View Tutors for My Subject</a>
+    <a class="login-btn" href="/student_ask_question.html"> Ask Question</a>
+    <a class="login-btn" href="/matched-tutors.html"> View Teacher for My Subject</a>
 
     <h3>Your Help Requests</h3>
     <div id="postsContainer"></div>
 
-    <a href="/student-responses.html" class="response-button">📬 View Tutor Responses</a>
+    <a href="/student-responses.html" class="response-button"> Responses</a>
   </div>
 
   <script>
@@ -66,5 +67,6 @@
       fetch(`/posts/${id}`,{method:'DELETE'}).then(loadPosts);
     }
   </script>
+
 </body>
 </html>
